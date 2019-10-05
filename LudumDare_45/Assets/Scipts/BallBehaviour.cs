@@ -6,6 +6,7 @@ public class BallBehaviour : MonoBehaviour
 {
 
     Rigidbody2D rb;
+    public scoring scoring;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class BallBehaviour : MonoBehaviour
 
     private void isGameOver(){
         if(transform.position.y < 0){
-            Debug.Log("Game Over");
+            scoring.Death();
         }
     }
 
