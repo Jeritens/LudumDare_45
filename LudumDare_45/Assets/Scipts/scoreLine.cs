@@ -5,8 +5,9 @@ using UnityEngine;
 public class scoreLine : MonoBehaviour
 {
     public GameObject markerPrefab;
-    public Transform player;
-    public List<marker> markers = new List<marker>();
+    public Transform cam;
+    public Transform line;
+    public LinkedList<marker> markers = new LinkedList<marker>();
     // Start is called before the first frame update
     void Start()
     {
@@ -14,34 +15,39 @@ public class scoreLine : MonoBehaviour
             GameObject g = GameObject.Instantiate(markerPrefab,Vector3.zero,Quaternion.identity);
             marker m = g.GetComponent<marker>();
             m.SetPos(i*5);
-            markers.Add(m);
+            markers.AddLast(m);
         }
     }
-    int lowest = 0;
+    
     void forwards(){
-        marker m = markers[lowest];
-        m.SetPos(markers[(int)Mathf.Repeat(lowest-1,markers.Count-1)].GetPos()+5);
-        lowest++;
+
+        marker m = markers.First.Value;
+        markers.RemoveFirst();
+        m.SetPos(markers.Last.Value.GetPos()+5);
+        markers.AddLast(m);
+        // lowest++;
     }
     void backwards(){
-        marker m = markers[(int)Mathf.Repeat(lowest-1,markers.Count-1)];
-        m.SetPos(markers[lowest].GetPos()-5);
-        lowest= (int)Mathf.Repeat(lowest-1,markers.Count-1);
+        marker m = markers.Last.Value;
+        markers.RemoveLast();
+        m.SetPos(markers.First.Value.GetPos()-5);
+        markers.AddFirst(m);
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool zuweit = true;
-        while(zuweit){
-            if(player.position.x-markers[lowest].GetPos()>10){
+        line.position = Vector2.right* Mathf.Max((cam.position.x-10),0);
+        bool outOfRange = true;
+        while(outOfRange){
+            if(cam.position.x-markers.First.Value.GetPos()>10){
                 forwards();
             }
-            else if(player.position.x-markers[lowest].GetPos()<2){
+            else if(cam.position.x-markers.First.Value.GetPos()<5 && markers.First.Value.GetPos()>0){
                 backwards();
             }
             else{
-                zuweit = false;
+                outOfRange = false;
             }
         }
     }

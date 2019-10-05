@@ -5,21 +5,30 @@ using UnityEngine;
 public class draw : MonoBehaviour
 {
     public float ink;
-    public float currentInk;
     public GameObject linePrefab;
     LineRenderer currentLineR;
     EdgeCollider2D currentLineCol;
+    void Start(){
+        if(PlayerPrefs.HasKey("highScore")){
+            ink = PlayerPrefs.GetFloat("highScore")+0.1f;
+        }
+        else{
+            ink = 0.1f;
+        }
+        
+    }
+
 
     // Update is called once per frame
     void Update()
     {
         
-        if(Input.GetButtonDown("Fire1")&&currentInk>0){
+        if(Input.GetButtonDown("Fire1")&&ink>0){
                 GameObject line = GameObject.Instantiate(linePrefab,Vector3.zero,Quaternion.identity);
                 currentLineR = line.GetComponent<LineRenderer>();
                 currentLineCol = line.GetComponent<EdgeCollider2D>();
         }
-        if(Input.GetButton("Fire1")&&currentInk>0){
+        if(Input.GetButton("Fire1")&&ink>0){
             
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentLineR.positionCount++;
@@ -30,7 +39,7 @@ public class draw : MonoBehaviour
             }
             currentLineCol.points = points;
             if(currentLineR.positionCount>1)
-                currentInk-=Vector2.Distance(currentLineR.GetPosition(currentLineR.positionCount-1),currentLineR.GetPosition(currentLineR.positionCount-2));
+                ink-=Vector2.Distance(currentLineR.GetPosition(currentLineR.positionCount-1),currentLineR.GetPosition(currentLineR.positionCount-2));
         }
         
     }
