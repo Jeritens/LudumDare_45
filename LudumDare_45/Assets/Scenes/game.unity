@@ -135,12 +135,12 @@ PrefabInstance:
     - target: {fileID: 8418167925961765363, guid: d211a76f00619684fb1f4f07599461f3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.37857962
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8418167925961765363, guid: d211a76f00619684fb1f4f07599461f3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.042042
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8418167925961765363, guid: d211a76f00619684fb1f4f07599461f3,
         type: 3}
@@ -192,8 +192,19 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8418167925961765365, guid: d211a76f00619684fb1f4f07599461f3,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d211a76f00619684fb1f4f07599461f3, type: 3}
+--- !u!1 &1293142187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8418167925961765367, guid: d211a76f00619684fb1f4f07599461f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 758378123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1635440895
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +216,7 @@ GameObject:
   - component: {fileID: 1635440898}
   - component: {fileID: 1635440897}
   - component: {fileID: 1635440896}
+  - component: {fileID: 1635440899}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -277,6 +289,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1635440899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635440895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9018add4930b242a5ae9f8da7e31db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 1293142187}
+  offset: {x: 0, y: 0, z: -10}
+  minspeed: 0.5
+  maxSpeed: 2
+  maxDistance: 5
 --- !u!1 &2007650827
 GameObject:
   m_ObjectHideFlags: 0
