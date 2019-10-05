@@ -11,12 +11,16 @@ public class BallBehaviour : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.isKinematic=true;
     }
 
     // Update is called once per frame
     void Update()
     {
         isGameOver();
+        if(Input.GetButtonUp("Fire1")){
+            rb.isKinematic=false;
+        }
     }
 
     public void AddSpeed(float speed)
