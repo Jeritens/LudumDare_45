@@ -720,6 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa89441eef45d3409559df72b16a482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballCount: 2
 --- !u!4 &503470706
 Transform:
   m_ObjectHideFlags: 0

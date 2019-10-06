@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public GameObject player;
+    GameObject player;
     public List<GameObject> powerUpList;
     public float probability;
     public float spawnChunkdistance;
@@ -19,7 +19,7 @@ public class ItemSpawner : MonoBehaviour
     void Start()
     {
         chunkCount=0;
-
+         player= PlayerStats.stats.GetPlayer();
         while( chunkCount * spawnChunkdistance < offScreenDistance){
             SpawnItems();
             chunkCount++;
@@ -29,6 +29,7 @@ public class ItemSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player= PlayerStats.stats.GetPlayer();
         if(player.transform.position.x >chunkCount *spawnChunkdistance - offScreenDistance){
             SpawnItems();
             chunkCount++;

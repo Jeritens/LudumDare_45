@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8418167925961765366}
   - component: {fileID: 4537023781518841531}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: Ball 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 72a8acc01b8a26c40b7a194c6c19e29f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.81269073, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 8418167925961765367}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 2216c99ac9314a64689f552886b1f2b6, type: 2}
+  m_Material: {fileID: 6200000, guid: de94c51d00504834690f4a0364fbf6da, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

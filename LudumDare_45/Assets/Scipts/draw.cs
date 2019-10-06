@@ -1,39 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class draw : MonoBehaviour
 {
-    public float ink;
-    public float maxInk;
-    public display inkDisplay;
-    public float redInk;
     public GameObject linePrefab;
     public GameObject speedLinePrefab;
     LineRenderer currentLineR;
     EdgeCollider2D currentLineCol;
-    void Start(){
-        if(PlayerPrefs.HasKey("highScore")){
-            maxInk = PlayerPrefs.GetFloat("highScore")+0.1f;
-        }
-        else{
-            maxInk = 0.1f;
-        }
-        ink = maxInk;
-
-        inkDisplay.change(ink,maxInk);
-        
-    }
+    public PlayerStats stats;
+    BallBehaviour ball;
+    
 
 
     // Update is called once per frame
     void Update()
     {        
-        if(Input.GetButtonDown("Fire1")&&ink>0){
+        if(Input.GetButtonDown("Fire1")&&stats.GetInk()>0&&!TestUI()){
             StartLine();
         }
-        if(Input.GetButton("Fire1")&&ink>0){
-            DrawLine();
+        if(Input.GetButton("Fire1")&&stats.GetInk()>0){
+            if(currentLineR!= null){
+                DrawLine();
+            }
         }
         else if(currentLineR != null){
             StopLine();
@@ -42,7 +32,7 @@ public class draw : MonoBehaviour
     }
 
     public void AddRedInk(float amountInk){
-        redInk += amountInk;
+        stats.AddRedInk(amountInk);
         if(currentLineR != null){
             StopLine();
             StartLine();
@@ -51,7 +41,7 @@ public class draw : MonoBehaviour
 
 
     private void StartLine(){
-        if(redInk>0){
+        if(stats.GetRedInk()>0){
             GameObject line = GameObject.Instantiate(speedLinePrefab,Vector3.zero,Quaternion.identity);
             currentLineR = line.GetComponent<LineRenderer>();
             currentLineCol = line.GetComponent<EdgeCollider2D>();
@@ -75,14 +65,13 @@ public class draw : MonoBehaviour
             currentLineCol.points = points;
             if(currentLineR.positionCount>1){
                 float distance = Vector2.Distance(currentLineR.GetPosition(currentLineR.positionCount-1),currentLineR.GetPosition(currentLineR.positionCount-2));
-                ink-= distance;
-                inkDisplay.change(ink,maxInk);
-                if(redInk > 0){
-                    redInk -= distance;
-                    if(redInk<=0){
+                stats.AddInk(-distance);
+                if(stats.GetRedInk() > 0){
+                    stats.AddRedInk(-distance);
+                    if(stats.GetRedInk()<=0){
                         StopLine();
                         StartLine();
-                        redInk = 0;
+                        stats.SetRedInk(0);
                     }
                 }
             }
@@ -91,5 +80,9 @@ public class draw : MonoBehaviour
         currentLineR.GetComponent<desolve>().startTimer();
         currentLineR = null;
         currentLineCol = null;
+        stats.GetPlayer().GetComponent<BallBehaviour>().startGame();
+    }
+    bool TestUI(){
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }

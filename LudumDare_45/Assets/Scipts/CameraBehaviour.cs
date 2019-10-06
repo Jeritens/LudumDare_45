@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
-    public GameObject ball;
+    Transform ball;
     [SerializeField]
     private Vector3 offset = new Vector3(3,0,-10);
     [SerializeField]
@@ -12,14 +12,10 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField]
     private float maxDistance = 7;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     void LateUpdate()
     {   
-        Vector3  destination = new Vector3(ball.transform.position.x,Mathf.Max(4,ball.transform.position.y),0)+offset;
+        ball = PlayerStats.stats.GetPlayer().transform;
+        Vector3  destination = new Vector3(ball.position.x,Mathf.Max(4,ball.position.y),0)+offset;
         //camera damping
         float distance = Mathf.Min((destination-transform.position).magnitude,maxDistance);
         float speed = distance/maxDistance*maxSpeed;
