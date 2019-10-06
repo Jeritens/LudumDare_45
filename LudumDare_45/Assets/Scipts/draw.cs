@@ -5,16 +5,21 @@ using UnityEngine;
 public class draw : MonoBehaviour
 {
     public float ink;
+    public float maxInk;
+    public display inkDisplay;
     public GameObject linePrefab;
     LineRenderer currentLineR;
     EdgeCollider2D currentLineCol;
     void Start(){
         if(PlayerPrefs.HasKey("highScore")){
-            ink = PlayerPrefs.GetFloat("highScore")+0.1f;
+            maxInk = PlayerPrefs.GetFloat("highScore")+0.1f;
         }
         else{
-            ink = 0.1f;
+            maxInk = 0.1f;
         }
+        ink = maxInk;
+
+        inkDisplay.change(ink,maxInk);
         
     }
 
@@ -40,6 +45,7 @@ public class draw : MonoBehaviour
             currentLineCol.points = points;
             if(currentLineR.positionCount>1)
                 ink-=Vector2.Distance(currentLineR.GetPosition(currentLineR.positionCount-1),currentLineR.GetPosition(currentLineR.positionCount-2));
+                inkDisplay.change(ink,maxInk);
         }
         else if(currentLineR != null){
             currentLineR.GetComponent<desolve>().startTimer();
