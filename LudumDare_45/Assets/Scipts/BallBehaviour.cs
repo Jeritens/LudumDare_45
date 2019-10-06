@@ -25,16 +25,21 @@ public class BallBehaviour : MonoBehaviour
 
     public void AddSpeed(float speed)
     {
-        rb.AddForce(rb.velocity.normalized*speed,ForceMode2D.Impulse);
+        rb.AddForce((rb.velocity.magnitude == 0 ? Vector2.right : rb.velocity.normalized) *speed,ForceMode2D.Impulse);
     }
     public void SetDirection(Vector2 direction){
         
         rb.velocity = direction.normalized*rb.velocity.magnitude;
     }
 
-    public void AddForce(Vector2 force)
+    public void AddForceImpulse(Vector2 force)
     {
         rb.AddForce(force,ForceMode2D.Impulse);
+    }
+
+      public void AddForce(Vector2 force)
+    {
+        rb.AddForce(force);
     }
 
     private void isGameOver(){
