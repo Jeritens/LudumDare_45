@@ -175,6 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd24b9fcd75949c45844e14fc1b37a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpan: 7.331
-  desolveSpeed: 1
+  timeSpan: 3
+  desolveTime: 3
   col: {r: 0.08627451, g: 0.121568635, b: 0.47058827, a: 1}

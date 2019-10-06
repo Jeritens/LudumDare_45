@@ -8,7 +8,7 @@ public class desolve : MonoBehaviour
     public float timeSpan=0;
     LineRenderer l;
     EdgeCollider2D ed;
-    public float desolveSpeed = 1;
+    public float desolveTime = 1;
     public Color col;
 
 
@@ -24,7 +24,7 @@ public class desolve : MonoBehaviour
         for(int i = 0; i<l.positionCount-1;i++){
             lineLength+=Vector2.Distance(l.GetPosition(i),l.GetPosition(i+1));
         }
-        float desolveTime = lineLength/desolveSpeed;
+        //float desolveTime = lineLength/desolveSpeed;
         
         StartCoroutine(DesolveAnim(desolveTime, lineLength));
     }

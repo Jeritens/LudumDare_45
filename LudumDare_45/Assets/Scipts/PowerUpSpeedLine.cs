@@ -7,17 +7,19 @@ public class PowerUpSpeedLine : MonoBehaviour
 
     public float amountSpeedInk;
 
-
+    Transform player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(player.position.x>transform.position.x+20){
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D( Collider2D other){
