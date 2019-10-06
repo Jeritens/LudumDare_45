@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpJump : MonoBehaviour
+public class PowerUpSpeedLine : MonoBehaviour
 {
 
-    public float strengh;
+    public float amountSpeedInk;
+    public AudioClip audioClip;
+
     Transform player;
     // Start is called before the first frame update
     void Start()
@@ -24,8 +26,8 @@ public class PowerUpJump : MonoBehaviour
     void OnTriggerEnter2D( Collider2D other){
     if (other.gameObject.tag == "Player") 
         {
-            other.GetComponent<BallBehaviour>().AddForceImpulse(transform.up.normalized*strengh);
-
+            GameObject.FindObjectOfType<draw>().AddRedInk(amountSpeedInk);
+            AudioSource.PlayClipAtPoint(audioClip,transform.position);
             Destroy(gameObject);
         }
     }

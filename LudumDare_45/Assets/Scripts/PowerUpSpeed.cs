@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpSpeedLine : MonoBehaviour
+public class PowerUpSpeed : MonoBehaviour
 {
 
-    public float amountSpeedInk;
-
+    public float speedPower;
+    public AudioClip audioClip;
     Transform player;
     // Start is called before the first frame update
     void Start()
@@ -23,10 +23,11 @@ public class PowerUpSpeedLine : MonoBehaviour
     }
 
     void OnTriggerEnter2D( Collider2D other){
-    if (other.gameObject.tag == "Player") 
-        {
-            GameObject.FindObjectOfType<draw>().AddRedInk(amountSpeedInk);
-            Destroy(gameObject);
-        }
+        if (other.gameObject.tag == "Player") 
+         {
+             other.GetComponent<BallBehaviour>().AddSpeed(speedPower);
+             AudioSource.PlayClipAtPoint(audioClip,transform.position);
+             Destroy(gameObject);
+         }
     }
 }

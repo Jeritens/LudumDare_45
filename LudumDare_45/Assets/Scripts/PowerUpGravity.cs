@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpGravity : MonoBehaviour
 {
     public float noGravityTime;
+    public AudioClip audioClip;
     Transform player;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class PowerUpGravity : MonoBehaviour
         if (other.gameObject.tag == "Player") 
          {
              other.GetComponent<BallBehaviour>().NoGravity(noGravityTime);
+             AudioSource.PlayClipAtPoint(audioClip,transform.position);
              Destroy(gameObject);
          }
     }
