@@ -41,6 +41,11 @@ public class draw : MonoBehaviour
             if(currentLineR.positionCount>1)
                 ink-=Vector2.Distance(currentLineR.GetPosition(currentLineR.positionCount-1),currentLineR.GetPosition(currentLineR.positionCount-2));
         }
+        else if(currentLineR != null){
+            currentLineR.GetComponent<desolve>().startTimer();
+            currentLineR = null;
+            currentLineCol = null;
+        }
         
     }
 }
