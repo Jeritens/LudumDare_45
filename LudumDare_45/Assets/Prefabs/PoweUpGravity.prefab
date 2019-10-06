@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11061885a3f6ea34bbceb0d6b57c77c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noGravityTime: 5
+  noGravityTime: 3
 --- !u!58 &7638380787563280896
 CircleCollider2D:
   m_ObjectHideFlags: 0
