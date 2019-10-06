@@ -17,7 +17,7 @@ public class PowerUpJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.position.x>transform.position.x+20){
+        if( PlayerStats.stats.GetPlayer().transform.position.x>transform.position.x+20){
             Destroy(gameObject);
         }
     }

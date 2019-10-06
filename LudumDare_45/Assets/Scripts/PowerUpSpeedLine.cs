@@ -8,17 +8,10 @@ public class PowerUpSpeedLine : MonoBehaviour
     public float amountSpeedInk;
     public AudioClip audioClip;
 
-    Transform player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if(player.position.x>transform.position.x+20){
+        if(PlayerStats.stats.GetPlayer().transform.position.x>transform.position.x+20){
             Destroy(gameObject);
         }
     }

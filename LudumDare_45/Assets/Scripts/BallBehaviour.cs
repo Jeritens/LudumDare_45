@@ -6,21 +6,29 @@ public class BallBehaviour : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    public scoring scoring;
+    scoring scoring;
+    PlayerStats pS;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic=true;
+        pS = GameObject.FindObjectOfType<PlayerStats>();
+        transform.position = pS.GetStartPosition();
+        scoring = GameObject.FindObjectOfType<scoring>();
     }
 
     // Update is called once per frame
     void Update()
     {
         isGameOver();
-        if(Input.GetButtonUp("Fire1")){
+    }
+    public void startGame(){
+        if(rb.isKinematic){
             rb.isKinematic=false;
+            rb.velocity = Vector2.right*pS.GetInitVel();
         }
+        
     }
 
     public void AddSpeed(float speed)
