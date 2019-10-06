@@ -25,17 +25,34 @@ public class BallBehaviour : MonoBehaviour
 
     public void AddSpeed(float speed)
     {
-        rb.AddForce(rb.velocity.normalized*speed);
+        rb.AddForce(rb.velocity.normalized*speed,ForceMode2D.Impulse);
     }
     public void SetDirection(Vector2 direction){
         
         rb.velocity = direction.normalized*rb.velocity.magnitude;
     }
 
+    public void AddForce(Vector2 force)
+    {
+        rb.AddForce(force,ForceMode2D.Impulse);
+    }
+
     private void isGameOver(){
         if(transform.position.y < 0){
             scoring.Death();
         }
+    }
+
+    public void NoGravity(float time){
+        rb.gravityScale = 0;
+        StartCoroutine(ResetGravity(time));
+        Debug.Log("no gravity");
+    }
+
+    IEnumerator ResetGravity(float time){
+        yield return new WaitForSeconds(time);
+        rb.gravityScale=1;
+        Debug.Log("back on earth");
     }
 
 }
