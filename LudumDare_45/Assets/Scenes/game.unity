@@ -719,11 +719,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 8418167925961765367, guid: d211a76f00619684fb1f4f07599461f3,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 8418167925961765363, guid: d211a76f00619684fb1f4f07599461f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -779,47 +774,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8418167925961765363, guid: d211a76f00619684fb1f4f07599461f3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6597
-      objectReference: {fileID: 0}
-    - target: {fileID: 8418167925961765363, guid: d211a76f00619684fb1f4f07599461f3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6597
-      objectReference: {fileID: 0}
-    - target: {fileID: 8418167925961765365, guid: d211a76f00619684fb1f4f07599461f3,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8418167925961765365, guid: d211a76f00619684fb1f4f07599461f3,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8418167925961765364, guid: d211a76f00619684fb1f4f07599461f3,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 03e3feb8e1381f74d98609d972014292,
-        type: 3}
     - target: {fileID: 8418167925961765366, guid: d211a76f00619684fb1f4f07599461f3,
         type: 3}
       propertyPath: scoring
       value: 
       objectReference: {fileID: 2109973504}
-    - target: {fileID: 4537023781518841531, guid: d211a76f00619684fb1f4f07599461f3,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.000000022587784
-      objectReference: {fileID: 0}
-    - target: {fileID: 4537023781518841531, guid: d211a76f00619684fb1f4f07599461f3,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.34667698
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d211a76f00619684fb1f4f07599461f3, type: 3}
 --- !u!1 &779398336
@@ -1992,7 +1951,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 71
   m_Sprite: {fileID: 21300000, guid: 395bbc0b95c1c7447aa87893fe62799f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2082,6 +2041,7 @@ MonoBehaviour:
   ink: 10
   maxInk: 0
   inkDisplay: {fileID: 500135246}
+  redInk: 0
   linePrefab: {fileID: 2874331826279441990, guid: 989fde1563bf60b468e092c9efd7652d,
     type: 3}
   speedLinePrefab: {fileID: 2874331826279441990, guid: bdaa3438612223447a0ef3c15de1f0a2,
@@ -2218,11 +2178,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2019564329543942738, guid: 7e685ac2bbd7d814eb14c5759e36df2d,
-        type: 3}
-      propertyPath: speedPower
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e685ac2bbd7d814eb14c5759e36df2d, type: 3}
