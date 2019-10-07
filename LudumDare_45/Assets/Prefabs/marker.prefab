@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2988958645716880845}
+  lr: {fileID: 2988958646013359645}
+  pencil: {r: 0, g: 0, b: 0, a: 0.627451}
 --- !u!1 &2988958645716880847
 GameObject:
   m_ObjectHideFlags: 0
