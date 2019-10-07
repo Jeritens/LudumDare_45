@@ -83,6 +83,9 @@ public class shop : MonoBehaviour
         description.text += ballProducts[index].description;
         
     }
+    public void dehover(){
+        panel.SetActive(false);
+    }
     void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
@@ -91,41 +94,40 @@ public class shop : MonoBehaviour
         if(!PlayerPrefs.HasKey("initVelUpgradeCount")){
             PlayerPrefs.SetInt("initVelUpgradeCount",0);
         }
-        else{
-            int count = PlayerPrefs.GetInt("initVelUpgradeCount");
-            pS.SetInitVel(count*initialVelUpgrade);
-            if(pS.GetMaxInk()<(products[1].start*Mathf.Pow(products[1].baseNumber,count))){
-                inVelBut.interactable = false;
-            }
+        int count = PlayerPrefs.GetInt("initVelUpgradeCount");
+        pS.SetInitVel(count*initialVelUpgrade);
+        if(pS.GetMaxInk()<(products[1].start*Mathf.Pow(products[1].baseNumber,count))){
+            inVelBut.interactable = false;
         }
         if(!PlayerPrefs.HasKey("heightUpgradeCount")){
                 PlayerPrefs.SetInt("heightUpgradeCount",0);
         }
-        else{
-            int count = PlayerPrefs.GetInt("heightUpgradeCount");
-            pS.SetStartPosition(Vector2.up* (count *heightUpgrade+initHeight));
-            if(pS.GetMaxInk()<(products[0].start*Mathf.Pow(products[0].baseNumber,count))){
-                heightBut.interactable = false;
-            }
-            //Canvas.position = new Vector2(Canvas.position.x,player.position.y);
-        } 
+        count = PlayerPrefs.GetInt("heightUpgradeCount");
+        pS.SetStartPosition(Vector2.up* (count *heightUpgrade+initHeight));
+        if(pS.GetMaxInk()<(products[0].start*Mathf.Pow(products[0].baseNumber,count))){
+            heightBut.interactable = false;
+        }
     }
     void ballz(){
         for(int i = 0; i<ballContainer.childCount;i++){
             balls.Add(ballContainer.GetChild(i).GetComponent<Button>());
-            if(PlayerPrefs.HasKey("ball"+i.ToString())){
-                if(PlayerPrefs.GetInt("ball"+i.ToString())==1){
-                    markAsBought(i);
-
-                }
-                else if(PlayerPrefs.GetInt("ball"+i.ToString())==2){
-                    markAsSelected(i);
-                }
-                else if(pS.GetMaxInk()<ballProducts[i].start){
-                    balls[i].interactable = false;
-
-                }
+            if(!PlayerPrefs.HasKey("ball"+i.ToString())){
+                PlayerPrefs.SetInt("ball"+i.ToString(),i==0?2:0);
             }
+            
+            if(PlayerPrefs.GetInt("ball"+i.ToString())==1){
+                markAsBought(i);
+
+            }
+            else if(PlayerPrefs.GetInt("ball"+i.ToString())==2){
+                markAsSelected(i);
+            }
+            else if(pS.GetMaxInk()<ballProducts[i].start){
+                balls[i].interactable = false;
+
+            }
+            Debug.Log(i);
+            
         }
     }
     void markAsBought(int index){
@@ -159,8 +161,9 @@ public class shop : MonoBehaviour
             pS.SetInitVel(PlayerPrefs.GetInt("initVelUpgradeCount")*initialVelUpgrade);
         }
         if(pS.GetMaxInk()<(products[1].start*Mathf.Pow(products[1].baseNumber,newCount))){
-                inVelBut.interactable = false;
-            }
+            inVelBut.interactable = false;
+        }
+        hover(1);
         
 
     }
@@ -174,6 +177,7 @@ public class shop : MonoBehaviour
         if(pS.GetMaxInk()<(products[0].start*Mathf.Pow(products[0].baseNumber,newCount))){
             heightBut.interactable = false;
         }
+        hover(0);
         
     }
     public void BuyBall(int index){

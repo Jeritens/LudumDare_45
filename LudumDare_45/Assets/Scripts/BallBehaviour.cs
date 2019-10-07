@@ -9,10 +9,18 @@ public class BallBehaviour : MonoBehaviour
     scoring scoring;
     PlayerStats pS;
     // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic=true;
+    }
+    void Start()
+    {
+       
+        
         pS = GameObject.FindObjectOfType<PlayerStats>();
         transform.position = pS.GetStartPosition();
         scoring = GameObject.FindObjectOfType<scoring>();

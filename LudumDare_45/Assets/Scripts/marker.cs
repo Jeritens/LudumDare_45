@@ -8,7 +8,7 @@ public class marker : MonoBehaviour
     public TextMeshPro text;
 
     public void SetPos(int pos){
-        transform.position = Vector2.right*pos;
+        //transform.position = Vector2.right*pos;
         text.text = pos.ToString();
     }
     public int GetPos(){

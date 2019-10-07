@@ -15,7 +15,7 @@ public class draw : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {        
         if(Input.GetButtonDown("Fire1")&&stats.GetInk()>0&&!TestUI()){
             StartLine();
