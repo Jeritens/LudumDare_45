@@ -1,8 +1,8 @@
-#Doodle Ball
+# Doodle Ball
 
 ![menuescreen](/images/menuescreen.png)
 
-##Ludum Dare 45 - Start with nothing
+## Ludum Dare 45 - Start with nothing
 
 You don’t start with nothing, but you start with just a tiny drop of ink left in your ink container.
 Draw lines to progress forward. The more distance you reach the more ink you will have available in your next run. 
