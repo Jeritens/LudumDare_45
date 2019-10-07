@@ -1,6 +1,6 @@
 # Doodle Ball
 
-![menuescreen](/images/menuescreen.png)
+![titlescreen](/images/titlescreen.png)
 
 ## Ludum Dare 45 - Start with nothing
 
@@ -12,5 +12,7 @@ They might backfire! Oh, and avoid the inkblots. Sell your ink for a little boos
 ![screenshot1](/images/screenshot1.png)
 
 ![screenshot2](/images/screenshot2.png)
+
+todo: link
 
 This was our first Ludum Dare. Even though we had some struggle finding a suitable game concept for the theme “start with nothing” we decided to go with our best idea after a good amount of uneventful brainstorming.
