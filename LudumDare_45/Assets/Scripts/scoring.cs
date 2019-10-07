@@ -48,8 +48,8 @@ public class scoring : MonoBehaviour
         GameObject.Instantiate(deathAnim,pS.GetPlayer().transform.position,Quaternion.identity);
         pS.GetPlayer().GetComponent<SpriteRenderer>().enabled= false;
         Rigidbody2D p = pS.GetPlayer().GetComponent<Rigidbody2D>();
-        p.isKinematic = true;
         p.velocity = Vector2.zero;
+        p.isKinematic = true;
         StartCoroutine(deathTimer());
         
     }
