@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
-    [SerializeField]
-    int ballCount=1;
+    
+    public int ballCount=1;
     public void play(){
         SceneManager.LoadScene("game");
     }
@@ -19,5 +19,8 @@ public class menu : MonoBehaviour
               PlayerPrefs.SetInt("ball"+i.ToString(),0);
          }
          PlayerPrefs.SetInt("ball0",2);
+    }
+    public void Exit(){
+        Application.Quit();
     }
 }
