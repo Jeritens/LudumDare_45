@@ -5660,6 +5660,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceText: {fileID: 1659624231}
   highScoreText: {fileID: 1817466836}
+  deathTime: 1.5
+  deathAnim: {fileID: 6578881003514220088, guid: 7f0bdd5e80367f04f9e0a6f08a86e98b,
+    type: 3}
 --- !u!114 &2109973505
 MonoBehaviour:
   m_ObjectHideFlags: 0
