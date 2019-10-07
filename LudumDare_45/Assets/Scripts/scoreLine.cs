@@ -24,14 +24,14 @@ public class scoreLine : MonoBehaviour
         for(int i = 0; i<8; i++){
             GameObject g = GameObject.Instantiate(markerPrefab,Vector3.right*i*5,Quaternion.identity,markerParent);
             marker m = g.GetComponent<marker>();
-            m.SetPos(i*5,i*5>hs);
+            m.SetPos(i*5,i*5>=hs);
             markers.Add(m);
         }
         
     }
     void rewritemarkers(int pos){
         for(int i = 0; i<markers.Count; i++){
-            markers[i].SetPos(pos+i*5,pos+i*5>hs);
+            markers[i].SetPos(pos+i*5,pos+i*5>=hs);
         }
     }
     
