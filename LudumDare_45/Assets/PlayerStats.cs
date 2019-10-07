@@ -45,7 +45,10 @@ public class PlayerStats : MonoBehaviour
         return maxInk;
     }
     public void SetMaxInk(float value){
+        
         maxInk = value;
+        maxInk=Mathf.Max(maxInk,0.1f);
+        SetInk(maxInk);
     }
     public float GetRedInk(){
         return redInk;

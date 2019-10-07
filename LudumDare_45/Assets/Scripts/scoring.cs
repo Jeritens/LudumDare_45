@@ -61,7 +61,6 @@ public class scoring : MonoBehaviour
         float HS = PlayerPrefs.GetFloat("highScore")+value;
         PlayerPrefs.SetFloat("highScore",HS);
         pS.SetMaxInk(HS);
-        pS.SetInk(HS);
         
 
     }

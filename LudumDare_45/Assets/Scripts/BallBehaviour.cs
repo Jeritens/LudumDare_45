@@ -8,6 +8,7 @@ public class BallBehaviour : MonoBehaviour
     Rigidbody2D rb;
     scoring scoring;
     PlayerStats pS;
+    float normalG ;
     // Start is called before the first frame update
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -16,6 +17,7 @@ public class BallBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic=true;
+        normalG = rb.gravityScale;
     }
     void Start()
     {
@@ -72,7 +74,7 @@ public class BallBehaviour : MonoBehaviour
 
     IEnumerator ResetGravity(float time){
         yield return new WaitForSeconds(time);
-        rb.gravityScale=1;
+        rb.gravityScale=normalG;
         Debug.Log("back on earth");
     }
 
