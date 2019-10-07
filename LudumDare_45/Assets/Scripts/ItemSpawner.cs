@@ -59,7 +59,7 @@ public class ItemSpawner : MonoBehaviour
         // }
         //20% anywhere in yVariety range
    
-        y =  Random.Range(Mathf.Max(0.5f,player.transform.position.y - yVariety),  player.transform.position.y +  yVariety);
+        y =  Random.Range(Mathf.Max(0f,player.transform.position.y - yVariety),  player.transform.position.y +  yVariety);
    
         return new Vector2(x,y);
     }
