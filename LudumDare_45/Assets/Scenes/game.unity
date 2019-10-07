@@ -5172,6 +5172,7 @@ GameObject:
   - component: {fileID: 2109973504}
   - component: {fileID: 2109973505}
   - component: {fileID: 2109973507}
+  - component: {fileID: 2109973506}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5228,6 +5229,25 @@ MonoBehaviour:
   spawnChunkdistance: 15
   maxItemPerChunk: 3
   chunkCount: 0
+  obsctacle: {fileID: 2109973506}
+--- !u!114 &2109973506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109973502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74998a0157dd09848a764d15ca179bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpawner: {fileID: 2109973505}
+  maxObstaclesPerChunk: 2
+  probability: 0.2
+  obstacleList:
+  - {fileID: 4997257228841789233, guid: 7ed4cf9569fcc794d961aa1ddf4c3686, type: 3}
+  - {fileID: 8409300783875654155, guid: 1a04afacc7cb4164a8b6fd0ea6a46649, type: 3}
 --- !u!114 &2109973507
 MonoBehaviour:
   m_ObjectHideFlags: 0

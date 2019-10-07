@@ -39,7 +39,7 @@ public class CameraBehaviour : MonoBehaviour
         //camera damping
         float distance = Mathf.Min(Vector2.Distance(destination,transform.position),maxDistance);
         float x = distance/maxDistance;
-        float speed = Mathf.Sqrt(ballSpeed)*this.speed;//Mathf.Pow(x,7)*60;
+        float speed = Mathf.Sqrt(ballSpeed)*this.speed+1;//Mathf.Pow(x,7)*60;
         transform.position = Vector3.Lerp(transform.position, destination, speed* Time.deltaTime);
 
     }

@@ -13,6 +13,7 @@ public class ItemSpawner : MonoBehaviour
     private int chunkCount;
     private float offScreenDistance = 15f;
     private float yVariety = 5f;
+    public obstacles obsctacle;
     
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class ItemSpawner : MonoBehaviour
          player= PlayerStats.stats.GetPlayer();
         while( chunkCount * spawnChunkdistance < offScreenDistance){
             SpawnItems();
+            obsctacle.spawnObstacles();
             chunkCount++;
         }
     }
@@ -32,6 +34,7 @@ public class ItemSpawner : MonoBehaviour
         player= PlayerStats.stats.GetPlayer();
         if(player.transform.position.x >chunkCount *spawnChunkdistance - offScreenDistance){
             SpawnItems();
+            obsctacle.spawnObstacles();
             chunkCount++;
         }
     }
@@ -49,7 +52,7 @@ public class ItemSpawner : MonoBehaviour
         return Random.Range(0,powerUpList.Count);
     }
 
-    private Vector2 randomLocation(){
+    public Vector2 randomLocation(){
         float x = chunkCount *spawnChunkdistance +  Random.Range(0,spawnChunkdistance);
 
         float y = 0;

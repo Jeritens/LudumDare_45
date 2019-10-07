@@ -43,7 +43,7 @@ public class scoreLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        line.position = Vector2.right* Mathf.Max((cam.position.x-10),0);
+        line.position = Vector2.right* Mathf.Max((cam.position.x-20),0);
         if(Mathf.Abs(cam.position.x-(markerParent.position.x+10))>5){
             int pos = Mathf.Max(Mathf.FloorToInt((cam.position.x-10f)/5f)*5,0);
             markerParent.position = Vector2.right*pos;
