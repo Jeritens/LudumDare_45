@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
     float maxInk;
     float redInk;
     public display inkDisplay;
+    int ball;
     Vector2 startPosition;
     float initVel;
     GameObject player;
@@ -74,4 +75,10 @@ public class PlayerStats : MonoBehaviour
     public void SetPlayer(GameObject p){
         player = p;
     } 
+    public int GetBall(){
+        return ball;
+    }
+    public void SetBall(int ball){
+        this.ball=ball;;
+    }
 }

@@ -12,6 +12,8 @@ public class scoring : MonoBehaviour
     public TextMeshProUGUI distanceText;
     public TextMeshProUGUI highScoreText;
     PlayerStats pS;
+    public float deathTime=1f;
+    public GameObject deathAnim;
     // Start is called before the first frame update
     void Awake()
     {
@@ -34,11 +36,25 @@ public class scoring : MonoBehaviour
         
     }
     public void Death(){
+        if(!active)
+            return;
         active = false;
+        
         if(PlayerPrefs.GetFloat("highScore")<score){
             PlayerPrefs.SetFloat("highScore",score);
             highScoreText.text = score.ToString("0.0");
+            
         }
+        GameObject.Instantiate(deathAnim,pS.GetPlayer().transform.position,Quaternion.identity);
+        pS.GetPlayer().GetComponent<SpriteRenderer>().enabled= false;
+        Rigidbody2D p = pS.GetPlayer().GetComponent<Rigidbody2D>();
+        p.isKinematic = true;
+        p.velocity = Vector2.zero;
+        StartCoroutine(deathTimer());
+        
+    }
+    IEnumerator deathTimer(){
+        yield return new WaitForSeconds(deathTime);
         SceneManager.LoadScene("game");
     }
     public void changeHS(float value){

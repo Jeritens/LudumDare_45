@@ -151,6 +151,7 @@ public class shop : MonoBehaviour
         ColorBlock col = balls[index].colors;
         col.normalColor = selectedColor;
         balls[index].colors = col;
+        pS.SetBall(index);
         
     }
     public void AddInitVel(){
